@@ -1,3 +1,5 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <div class="container mt-3">
 
     <div class="row">
@@ -7,8 +9,8 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-6">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+        < class="col-lg-6">
+        <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
         Tambah data Mahasiswa
         </button>
         <br><br>
@@ -23,12 +25,26 @@
                     </li>
                     <?php endforeach; ?>
                 </ul>
+                <div class="row mb-3">
+    <div class="col-lg-6">
+        <form action="<?= BASEURL; ?>/mahasiswa/cari" method="post"> 
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Cari mahasiswa.." name="keyword" id="keyword">
+                <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
+            </div>
+        </form>
+    </div>
+</div>
+        
+<div class="row">
+        <div class="col-lg-6">
+           
         </div>
     </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModal" aria-hidden="true">
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -37,6 +53,7 @@
       </div>
       <div class="modal-body">
         <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post" id="formTambahMahasiswa">
+        <input type="hidden" name="id" id="id">
             <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="text" class="form-control" id="nama" name="nama"> 
